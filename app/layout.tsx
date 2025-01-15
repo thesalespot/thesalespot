@@ -48,18 +48,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
+        
           <Navbar />
           {children}
           <Footer />
           <Toaster />
           <Analytics />
-        </ThemeProvider>
+        
       </body>
     </html>
   );

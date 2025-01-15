@@ -7,7 +7,7 @@ import { WaitlistForm } from '@/components/waitlist-form';
 
 export function HeroSection() {
   return (
-    <section className="relative h-screen flex items-center justify-center bg-gradient-to-b from-primary/5 to-background">
+    <section className="relative h-screen flex items-center justify-center ">
       <div className="container mx-auto text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
