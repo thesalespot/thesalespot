@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,21 +28,17 @@ export function Navbar() {
 
   return (
     <nav
-      className={cn(
-        'fixed top-0 w-full z-50 transition-all duration-300 px-24',
-        isScrolled
-          ? 'bg-white/80 backdrop-blur-md py-2 shadow-sm'
-          : 'bg-transparent py-4'
-      )}
+      className=
+      'sticky top-0 w-full z-50 transition-all duration-300 px-24 bg-white  py-4  '
     >
       <div className="container mx-auto flex items-center justify-between">
-      <Link  href={'/'} >
-      <div className=" cursor-pointer flex items-center space-x-2">
-          <CircuitBoard className="h-8 w-8 text-primary" />
-          <span className="font-bold text-xl">TheSaleSpot</span>
-        </div>
-      </Link>
-        
+        <Link href={'/'} >
+          <div className=" cursor-pointer flex items-center space-x-2">
+            <CircuitBoard className="h-8 w-8 text-primary" />
+            <span className="font-bold text-xl">TheSaleSpot</span>
+          </div>
+        </Link>
+
         <div className="flex items-center space-x-4">
           <Button
             variant="ghost"

@@ -4,10 +4,12 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { WaitlistForm } from '@/components/waitlist-form';
+import { MaskContainer } from './ui/svg-mask-effect';
 
 export function HeroSection() {
   return (
-    <section className="relative h-screen flex items-center justify-center ">
+    <section className="relative mt-5 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-300 via-blue-200 to-blue-100 w-[96vw] mx-auto rounded-lg   h-screen flex items-center justify-center p-8" style={{ borderRadius: '30px' }}>
+     
       <div className="container mx-auto text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -15,8 +17,8 @@ export function HeroSection() {
           transition={{ duration: 0.8 }}
           className="text-5xl md:text-6xl font-bold mb-6"
         >
-          Empower Sales, <br />
-          Delight Prospects, <br />
+          Empower Sales, 
+          Delight Prospects,<br/> 
           Close Quick
         </motion.h1>
         
@@ -46,6 +48,7 @@ export function HeroSection() {
           </Dialog>
         </motion.div>
       </div>
+      
     </section>
   );
 }
