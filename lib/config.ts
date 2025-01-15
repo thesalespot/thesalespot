@@ -20,10 +20,10 @@ export const databases = new Databases(client);
 export { ID };
 
 export const addDocument = async (databaseId: string, collectionId: string, data: object, documentId = ID.unique()) => {
-    console.log("Appwrite URL:", process.env.APPWRITE_UR);
-    console.log("Appwrite Project ID:", conf.appwriteProjectId);
-    console.log("Appwrite Database ID:", conf.appwriteDatabaseId);
-    console.log("Appwrite Collection ID:", conf.appwriteCollectionId);
+    // console.log("Appwrite URL:", process.env.APPWRITE_UR);
+    // console.log("Appwrite Project ID:", conf.appwriteProjectId);
+    // console.log("Appwrite Database ID:", conf.appwriteDatabaseId);
+    // console.log("Appwrite Collection ID:", conf.appwriteCollectionId);
 
 
     try {

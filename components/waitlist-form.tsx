@@ -18,7 +18,7 @@ export function WaitlistForm() {
   
     try {
       const result = await addDocument("67878cc30030ca9ec3ae", "67878ccf001b4de2e4d6", { email });
-      console.log("Document added:", result);
+      // console.log("Document added:", result);
       setIsSubmitted(true);
     } catch (error) {
       console.error("Failed to add document:", error);
