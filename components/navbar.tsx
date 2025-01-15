@@ -6,9 +6,11 @@ import { CircuitBoard } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { WaitlistForm } from '@/components/waitlist-form';
+import Link from 'next/link';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,10 +36,12 @@ export function Navbar() {
       )}
     >
       <div className="container mx-auto flex items-center justify-between">
-        <div className="flex items-center space-x-2">
+      <Link  href={'/'} >
+      <div className=" cursor-pointer flex items-center space-x-2">
           <CircuitBoard className="h-8 w-8 text-primary" />
           <span className="font-bold text-xl">TheSaleSpot</span>
         </div>
+      </Link>
         
         <div className="flex items-center space-x-4">
           <Button
