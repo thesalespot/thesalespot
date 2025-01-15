@@ -57,8 +57,30 @@ export function Navbar() {
             <DialogTrigger asChild>
               <Button>Join the Waiting List</Button>
             </DialogTrigger>
-            <DialogContent>
-              <WaitlistForm />
+            <DialogContent 
+              className="rounded-2xl p-0 overflow-hidden border-none"
+              style={{
+                background: 'white',
+                maxWidth: '500px',
+                width: '90%',
+                boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+              }}
+            >
+              <div className="p-8">
+                <h2 
+                  className="text-3xl font-bold mb-2"
+                  style={{ color: '#1a365d' }}
+                >
+                  Join the Waitlist
+                </h2>
+                <p 
+                  className="text-base mb-6"
+                  style={{ color: '#475569' }}
+                >
+                  Be the first to experience the future of sales enablement.
+                </p>
+                <WaitlistForm />
+              </div>
             </DialogContent>
           </Dialog>
         </div>
