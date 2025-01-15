@@ -28,8 +28,8 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-      'sticky top-0 w-[80%] mx-auto z-50 transition-all shadow-none duration-500 ease-out px-24 py-4',
-      isScrolled ? 'bg-white shadow-lg w-[80%] mx-auto fixed mt-3 ml-[10%] rounded-[80px]' : 'bg-transparent'
+      'sticky top-0 w-[80%] mx-auto mt-2 z-50 transition-all shadow-none duration-300 ease-in-out px-24 py-3',
+      isScrolled ? 'bg-white shadow-md w-[80%] mx-auto fixed mt-2 ml-[10%] rounded-[80px]' : 'bg-transparent'
       )}
     >
       <div className="container mx-auto flex items-center justify-between">

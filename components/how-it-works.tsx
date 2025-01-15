@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Play } from 'lucide-react';
-
+import ReactPlayer from 'react-player';
 export function HowItWorks() {
   return (
     <section id="how-it-works" className="py-24 bg-gradient-to-b from-background to-secondary/20">
@@ -26,10 +25,18 @@ export function HowItWorks() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative aspect-video max-w-4xl mx-auto rounded-xl overflow-hidden bg-secondary/40 flex items-center justify-center group cursor-pointer"
+            className="relative aspect-video max-w-4xl mx-auto rounded-xl overflow-hidden bg-secondary/40"
           >
-            <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300" />
-            <Play className="w-16 h-16 text-primary group-hover:scale-110 transition-transform duration-300" />
+
+
+            <ReactPlayer
+              url="https://youtu.be/cjrN-vru2h8?si=Kl5bvdCPnUo7qYuj"
+              playing={false}
+              controls={true}
+              width="100%"
+              height="100%"
+            />
+
           </motion.div>
         </div>
 
