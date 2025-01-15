@@ -8,7 +8,7 @@ import { MaskContainer } from './ui/svg-mask-effect';
 
 export function HeroSection() {
   return (
-    <section className="relative mt-5 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-300 via-blue-200 to-blue-100 w-[96vw] mx-auto rounded-lg   h-screen flex items-center justify-center p-8" style={{ borderRadius: '30px' }}>
+    <section className="relative mt-5 bg-gradient-to-br from-blue-100 to-blue-50/70 to-50% w-[96vw] mx-auto rounded-lg   h-screen flex items-center justify-center p-8" style={{ borderRadius: '30px' }}>
      
       <div className="container mx-auto text-center">
         <motion.h1
