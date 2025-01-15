@@ -28,7 +28,7 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-      'sticky top-0 w-full z-50 transition-all shadow-none duration-500 ease-out px-24 py-4',
+      'sticky top-0 w-[80%] mx-auto z-50 transition-all shadow-none duration-500 ease-out px-24 py-4',
       isScrolled ? 'bg-white shadow-lg w-[80%] mx-auto fixed mt-3 ml-[10%] rounded-[80px]' : 'bg-transparent'
       )}
     >
