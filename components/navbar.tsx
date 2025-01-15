@@ -11,7 +11,6 @@ import Link from 'next/link';
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -28,8 +27,10 @@ export function Navbar() {
 
   return (
     <nav
-      className=
-      'sticky top-0 w-full z-50 transition-all duration-300 px-24 bg-white  py-4  '
+      className={cn(
+      'sticky top-0 w-full z-50 transition-all shadow-none duration-500 ease-out px-24 py-4',
+      isScrolled ? 'bg-white shadow-lg w-[80%] mx-auto fixed mt-3 ml-[10%] rounded-[80px]' : 'bg-transparent'
+      )}
     >
       <div className="container mx-auto flex items-center justify-between">
         <Link href={'/'} >
