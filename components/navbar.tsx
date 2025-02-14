@@ -1,90 +1,91 @@
-'use client';
+"use client";
+import Link from "next/link";
+import { Button } from "./ui/button";
+import { Menu } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { ThemeButton } from "./ui/theme-button";
 
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { CircuitBoard } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { WaitlistForm } from '@/components/waitlist-form';
-import Link from 'next/link';
+const routes = [
+  { title: "How it works", href: "#how-it-works" },
+  { title: "Who we help", href: "#who-we-help" },
+  { title: "Contact", href: "#contact" },
+];
 
-export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
+const Navbar = () => {
+  const handleScroll = (e: any, targetId: any) => {
+    e.preventDefault();
+    const section = document.querySelector(targetId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
   };
-
   return (
-    <nav
-      className={cn(
-      'sticky top-0 w-[80%] mx-auto mt-2 z-50 transition-all shadow-none duration-300 ease-in-out px-24 py-3',
-      isScrolled ? 'bg-white shadow-md w-[80%] mx-auto fixed mt-2 ml-[10%] rounded-[80px]' : 'bg-transparent'
-      )}
-    >
-      <div className="container mx-auto flex items-center justify-between">
-        <Link href={'/'} >
-          <div className=" cursor-pointer flex items-center space-x-2">
-            <CircuitBoard className="h-8 w-8 text-primary" />
-            <span className="font-bold text-xl">TheSaleSpot</span>
-          </div>
-        </Link>
+    <header className="p-4 flex justify-between items-center">
+      <Link href={"/"} className="flex gap-2 items-center">
+        <span className="font-semibold text-xl ">
+          thesalespot.
+        </span>
+      </Link>
 
-        <div className="flex items-center space-x-4">
-          <Button
-            variant="ghost"
-            onClick={() => scrollToSection('how-it-works')}
+      <nav className="hidden md:flex gap-20 dark:text-white text-black hover:text-gray-900  ">
+        {routes.map((route) => (
+          <Link
+            href={route.href}
+            key={route.href}
+            onClick={(e) => handleScroll(e, route.href)}
+            className="text-sm font-medium dark:text-white text-black hover:text-gray-900  "
           >
-            How It Works
+            {route.title}
+          </Link>
+        ))}
+      </nav>
+
+      <div className="hidden md:flex gap-2  ">
+        <Link href={"/login"}>
+          <Button variant="btn-secondary" className="p-1">
+            Login
           </Button>
-          <Button
-            variant="ghost"
-            onClick={() => scrollToSection('contact')}
-          >
-            Contact Us
+        </Link>
+        <Link href="/signup">
+          <Button variant="btn-primary" className="whitespace-nowrap">
+            Sign Up
           </Button>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button>Join the Waiting List</Button>
-            </DialogTrigger>
-            <DialogContent 
-              className="rounded-2xl p-0 overflow-hidden border-none"
-              style={{
-                background: 'white',
-                maxWidth: '500px',
-                width: '90%',
-                boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-              }}
-            >
-              <div className="p-8">
-                <h2 
-                  className="text-3xl font-bold mb-2"
-                  style={{ color: '#1a365d' }}
-                >
-                  Join the Waitlist
-                </h2>
-                <p 
-                  className="text-base mb-6"
-                  style={{ color: '#475569' }}
-                >
-                  Be the first to experience the future of sales enablement.
-                </p>
-                <WaitlistForm />
-              </div>
-            </DialogContent>
-          </Dialog>
-        </div>
+        </Link>
+         <ThemeButton/>
       </div>
-    </nav>
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="ghost" size="icon" className="md:hidden">
+            <Menu className="h-6 w-6" />
+            <span className="sr-only">Toggle menu</span>
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="right">
+          <nav className="flex flex-col gap-4 dark:text-white text-black ">
+            {routes.map((route) => (
+              <Link
+                key={route.href}
+                href={route.href}
+                className="text-lg font-medium dark:text-white text-black "
+              >
+                {route.title}
+              </Link>
+            ))}
+            <Link href={"/login"}>
+              <Button variant="btn-secondary" className="w-full">
+                Login
+              </Button>
+            </Link>
+            <Link href="/signup">
+              <Button variant="btn-primary" className="w-full dark:text-white text-white ">
+                Sign Up
+              </Button>
+            </Link>
+          </nav>
+        </SheetContent>
+      </Sheet>
+    </header>
   );
-}
+};
+
+export default Navbar;
